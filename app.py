@@ -16,7 +16,7 @@ def hello():
         return str(db)
         
     if request.method == 'POST':
-        print(request.get_json())
+        print(request.data.get('name'))
         return "Bienvenido"
 
     # def show_data():
