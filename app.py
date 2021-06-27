@@ -16,8 +16,8 @@ def hello():
         return str(db)
         
     if request.method == 'POST':
-        # request_data = request.get_data()
-        return request
+        print(request.get_json())
+        return "Bienvenido"
 
     # def show_data():
     #     return peticion
