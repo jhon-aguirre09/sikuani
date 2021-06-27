@@ -17,7 +17,6 @@ def hello():
         
     if request.method == 'POST':
         # request_data = request.get_data()
-        request
         return request
 
     # def show_data():
