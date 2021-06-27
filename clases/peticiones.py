@@ -7,7 +7,8 @@ from clases.tiempo_segundos import TiempoSegundos
 
 class PeticionDatos:
     def __init__(self, batalla):
-        self.url = 'http://ec2-100-26-152-194.compute-1.amazonaws.com:3000/battles/{}'.format(batalla)
+        # self.url = 'http://ec2-100-26-152-194.compute-1.amazonaws.com:3000/battles/{}'.format(batalla)
+        self.url = 'http://ec2-100-26-152-194.compute-1.amazonaws.com:3000/battles/2/faucet'
         self.datos = {'Token': '11360e9d-0fdc-49d4-b127-aec80336c6a9', 'content-type': 'application/json'}
         self.respuesta = requests.get(self.url, headers=self.datos)
         self.res_json = self.respuesta.json()
@@ -15,7 +16,7 @@ class PeticionDatos:
     def get_datos(self):
         self.lista_tiempos = []
         for datos in self.res_json['data']:
-            tiempo_datos = datos.split(',')
+            tiempo_datos = datos.split(',')9
             tiempo = tiempo_datos[0]
             contador = 0
             # print("Para el tiempo: ", tiempo)
