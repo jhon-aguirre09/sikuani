@@ -18,6 +18,7 @@ def hello():
         
     if request.method == 'POST':
         data = request.get_json()
+        print(data)
         peticion.get_datos(data)
-        print(data["data"])
+        # print(data)
         return data
