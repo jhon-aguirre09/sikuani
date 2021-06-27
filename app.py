@@ -8,14 +8,14 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def hello():
 
-    peticion = PeticionDatos()
-
     if request.method == 'GET':
+        peticion = PeticionDatos()
         client = pymongo.MongoClient("mongodb+srv://new_user:sikuani@cluster0.vxniy.mongodb.net/sikuanidb?retryWrites=true&w=majority") 
         db = client.test
         return str(db)
         
     if request.method == 'POST':
         data = request.get_json()
+        peticion.get_datos(data)
         print(data["data"])
         return data
