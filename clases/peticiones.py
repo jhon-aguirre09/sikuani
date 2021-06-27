@@ -19,18 +19,18 @@ class PeticionDatos:
 
     def get_datos(self, data):
         self.lista_tiempos = []
-        for datos in data['payload']:
-            tiempo_datos = datos.split(',')
-            tiempo = tiempo_datos[0]
-            contador = 0
-            # print("Para el tiempo: ", tiempo)
-            lista_sensores = []
-            for sensor_tiempo in tiempo_datos:
-                if contador != 0:
-                    sensor_info_array = sensor_tiempo.replace('(', '').replace(')', '').split('|')
-                    lista_sensores.append(Sensor(sensor_info_array[0], sensor_info_array[1]))
-                else:
-                    contador += 1
-            self.lista_tiempos.append(TiempoSegundos(tiempo, lista_sensores))
+        # for datos in data['payload']:
+        tiempo_datos = data['payload'].split(',')
+        tiempo = tiempo_datos.pop(0)
+        contador = 0
+        # print("Para el tiempo: ", tiempo)
+        lista_sensores = []
+        for sensor_tiempo in tiempo_datos:
+            if contador != 0:
+                sensor_info_array = sensor_tiempo.replace('(', '').replace(')', '').split('|')
+                lista_sensores.append(Sensor(sensor_info_array[0], sensor_info_array[1]))
+            else:
+                contador += 1
+        self.lista_tiempos.append(TiempoSegundos(tiempo, lista_sensores))
         return self.lista_tiempos
 
