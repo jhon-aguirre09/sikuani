@@ -14,6 +14,7 @@
           <StatusCircle></StatusCircle>
         
           <Notify class="mt-2"></Notify>
+          <ListSensors></ListSensors>
         
       </v-row>
     </v-main>
@@ -24,6 +25,7 @@
 // import HelloWorld from "./components/HelloWorld";
 import  StatusCircle from "./components/StatusCircle";
 import  Notify from "./components/Notify";
+import ListSensors from "./components/ListSensors";
 
 
 
@@ -32,13 +34,32 @@ export default {
 
   components: {
     StatusCircle,
-    Notify
+    Notify,
+    ListSensors,
+    
   },
   created () {
     this.$vuetify.theme.dark = true
   },
   data: () => ({
-    //
+    data:{
+      "repair":{
+        status:null,
+        values:[],
+        timestamps:''
+      },
+      "attack":{
+        status:null,
+        values:[],
+        timestamps:''
+      },
+      "bomb":{
+
+      }
+    }
   }),
+  watch:{
+
+  }
 };
 </script>
