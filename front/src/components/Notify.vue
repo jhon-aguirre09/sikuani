@@ -9,7 +9,7 @@
           <v-alert 
           dense
           outlined 
-          :type="this.alert[0]" >{{text_action}}</v-alert>
+          :type="AlertType" >{{MessageType}}</v-alert>
       </v-row>
   </v-col>
   <v-col >
@@ -24,7 +24,7 @@
   </v-col>
   <v-col >
       <v-row>
-          <h1>Tiemstamp</h1>
+          <h1>Timestamp</h1>
       </v-row>
       <v-row>
           <v-alert 
@@ -43,13 +43,13 @@ export default {
 name:'Notify',
 props:{
     action:Number,
-    sensones:Array,
-    tiemstamp:String
+    sensores:Array,
+    timestamp:String
 },
 data(){
     return{
-        num_action:undefined,
-        text_time:'',
+        num_action:3,
+        text_time:''    ,
         data_sensores:[],
         alert:['warning','info','error'],
         alert2:[
@@ -66,17 +66,22 @@ watch:{
        "action":function(data){
            this.num_action= data
        },
-       "tiemstamp":function(data){
+       "timestamp":function(data){
            this.text_time=data
        },
-       "sensonres":function(data){
-           this.data_sensonres = data;
+       "sensores":function(data){
+           this.data_sensores = data;
        }  
     },
 
 computed:{
-        AlertType:function(value){
-            return String(this.alert2[value].type)
+        AlertType:function(){
+            let action = this.num_action;
+            return String(this.alert2[action].type)
+        },
+        MessageType:function(){
+            let action = this.num_action;
+            return String(this.alert2[action].value)
         }
     }
 }
