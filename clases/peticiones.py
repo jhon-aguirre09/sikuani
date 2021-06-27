@@ -19,7 +19,7 @@ class PeticionDatos:
 
     def get_datos(self, data):
         self.lista_tiempos = []
-        for datos in self.data['data']:
+        for datos in data['payload']:
             tiempo_datos = datos.split(',')
             tiempo = tiempo_datos[0]
             contador = 0
