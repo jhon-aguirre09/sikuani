@@ -17,7 +17,7 @@ def hello():
         
     if request.method == 'POST':
         data = request.json
-        print(request.jsonify(data))
+        # print(request.jsonify(data))
         return "Bienvenido"
 
     # def show_data():
